@@ -76,7 +76,7 @@ namespace DatBlitzcrank
 
             Indicator = new DamageIndicator();
 
-            Chat.Print("Dat Blitzcrank Loaded, [By Tychus] , Version: 1.0.0.0", Color.Aquamarine);
+            Chat.Print("DatBlitzcrank Loaded, Version: 1.0.0.0", Color.LawnGreen);
         }
 
         private static void Game_OnTick(EventArgs args)
@@ -110,7 +110,7 @@ namespace DatBlitzcrank
 
                     if (predic.HitChance > (HitChance)Config.SpellSetting.Q.HitchanceQ + 2)
                     {
-                        Q.Cast(Starget);
+                        Q.Cast(predic.CastPosition);
                     }
                 }
                 else if (Qtarget.IsValidTarget(Config.SpellSetting.Q.MaxrangeQ) &&
@@ -120,7 +120,7 @@ namespace DatBlitzcrank
 
                     if (predic.HitChance > (HitChance)Config.SpellSetting.Q.HitchanceQ + 2)
                     {
-                        Q.Cast(Qtarget);
+                        Q.Cast(predic.CastPosition);
                     }
                 }
             }
@@ -163,7 +163,7 @@ namespace DatBlitzcrank
 
                     if (predic.HitChance > (HitChance)Config.SpellSetting.Q.HitchanceQ + 2)
                     {
-                        Q.Cast(Starget);
+                        Q.Cast(predic.CastPosition);
                     }
                 }
                 else if (Qtarget.IsValidTarget(Config.SpellSetting.Q.MaxrangeQ) &&
@@ -173,7 +173,7 @@ namespace DatBlitzcrank
 
                     if (predic.HitChance > (HitChance)Config.SpellSetting.Q.HitchanceQ + 2)
                     {
-                        Q.Cast(Qtarget);
+                        Q.Cast(predic.CastPosition);
                     }
                 }
             }
@@ -212,7 +212,7 @@ namespace DatBlitzcrank
                 if (Qtarget != default(AIHeroClient) && !SpellShield(Qtarget) &&
                     Qtarget.Distance(Player.ServerPosition) > Config.SpellSetting.Q.MinrangeQ)
                 {
-                    Q.Cast(Qtarget);
+                    Q.Cast(Q.GetPrediction(Qtarget).CastPosition);
                 }
             }
 
@@ -239,7 +239,7 @@ namespace DatBlitzcrank
                 Qtarget.Distance(Player.ServerPosition) > Config.SpellSetting.Q.MinrangeQ && CC(Qtarget) &&
                 Menu["grabMode" + Qtarget.ChampionName].Cast<Slider>().CurrentValue == 3)
             {
-                Q.Cast(Qtarget);
+                Q.Cast(Q.GetPrediction(Qtarget).CastPosition);
             }
         }
 
@@ -287,7 +287,9 @@ namespace DatBlitzcrank
             //if (TargetSelector.SelectedTarget == null)
                 new Circle
                 {
-                    Color = TargetPred.HitChance > (HitChance)Config.SpellSetting.Q.HitchanceQ + 2 ? Color.LawnGreen : Color.Orange,
+                    Color = Menu["grabMode" + Target.ChampionName].Cast<Slider>().CurrentValue == 1 || 
+                    Target.Distance(Player.ServerPosition) <= Config.SpellSetting.Q.MinrangeQ ? Color.Red 
+                    : TargetPred.HitChance > (HitChance)Config.SpellSetting.Q.HitchanceQ + 2 && !SpellShield(Target) ? Color.LawnGreen : Color.Orange,
                     BorderWidth = 6,
                     Radius = 50
                 }.Draw(Target.Position);
@@ -310,7 +312,7 @@ namespace DatBlitzcrank
                 sender.IsValidTarget(Config.SpellSetting.Q.MaxrangeQ) &&
                 Config.SpellSetting.Q.MinHealthQ < Player.HealthPercent)
             {
-                    Q.Cast(sender);
+                    Q.Cast(Q.GetPrediction(sender).CastPosition);
             }
             else if (Config.SpellSetting.E.InterruptE && E.IsReady() &&
                 sender.IsValidTarget(300))
@@ -371,7 +373,7 @@ namespace DatBlitzcrank
             if (e.EndPos.Distance(Player.ServerPosition) > Config.SpellSetting.Q.MinrangeQ &&
                      e.EndPos.Distance(Player.ServerPosition) < Config.SpellSetting.Q.MaxrangeQ)
             {
-                Q.Cast(sender);
+                Q.Cast(Q.GetPrediction(sender).CastPosition);
             }
         }
     }
