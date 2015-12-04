@@ -55,6 +55,7 @@ namespace DatBlitzcrank
                 return;
                 
             Config.Initialize();
+            Class1.Initialize();
 
             Menu = Config.Menu.AddSubMenu("Grab Mode", "grabMenu");
             Menu.AddGroupLabel("Grab Mode");
@@ -374,7 +375,7 @@ namespace DatBlitzcrank
                      e.EndPos.Distance(Player.ServerPosition) < Config.SpellSetting.Q.MaxrangeQ &&
                      Menu["grabMode" + Target.ChampionName].Cast<Slider>().CurrentValue == 3)
             {
-                Q.Cast(Q.GetPrediction(sender).CastPosition);
+                Q.Cast(sender);
             }
         }
     }

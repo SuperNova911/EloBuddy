@@ -1,11 +1,11 @@
-C:\Users\SuperNova\Documents\GitHub\EloBuddy\DatBlitzcrank\DatBlitzcrank\bin\Debug\ChallengerBlitzcrank.exe.config
-C:\Users\SuperNova\Documents\GitHub\EloBuddy\DatBlitzcrank\DatBlitzcrank\bin\Debug\ChallengerBlitzcrank.exe
-C:\Users\SuperNova\Documents\GitHub\EloBuddy\DatBlitzcrank\DatBlitzcrank\bin\Debug\ChallengerBlitzcrank.pdb
 C:\Users\SuperNova\Documents\GitHub\EloBuddy\DatBlitzcrank\DatBlitzcrank\bin\Debug\EloBuddy.dll
 C:\Users\SuperNova\Documents\GitHub\EloBuddy\DatBlitzcrank\DatBlitzcrank\bin\Debug\EloBuddy.SDK.dll
 C:\Users\SuperNova\Documents\GitHub\EloBuddy\DatBlitzcrank\DatBlitzcrank\bin\Debug\SharpDX.Direct3D9.dll
 C:\Users\SuperNova\Documents\GitHub\EloBuddy\DatBlitzcrank\DatBlitzcrank\bin\Debug\SharpDX.dll
 C:\Users\SuperNova\Documents\GitHub\EloBuddy\DatBlitzcrank\DatBlitzcrank\bin\Debug\Newtonsoft.Json.dll
 C:\Users\SuperNova\Documents\GitHub\EloBuddy\DatBlitzcrank\DatBlitzcrank\obj\Debug\DatBlitzcrank.csprojResolveAssemblyReference.cache
-C:\Users\SuperNova\Documents\GitHub\EloBuddy\DatBlitzcrank\DatBlitzcrank\obj\Debug\ChallengerBlitzcrank.exe
-C:\Users\SuperNova\Documents\GitHub\EloBuddy\DatBlitzcrank\DatBlitzcrank\obj\Debug\ChallengerBlitzcrank.pdb
+C:\Users\SuperNova\Documents\GitHub\EloBuddy\DatBlitzcrank\DatBlitzcrank\bin\Debug\DatBlitzcrank.exe.config
+C:\Users\SuperNova\Documents\GitHub\EloBuddy\DatBlitzcrank\DatBlitzcrank\bin\Debug\DatBlitzcrank.exe
+C:\Users\SuperNova\Documents\GitHub\EloBuddy\DatBlitzcrank\DatBlitzcrank\bin\Debug\DatBlitzcrank.pdb
+C:\Users\SuperNova\Documents\GitHub\EloBuddy\DatBlitzcrank\DatBlitzcrank\obj\Debug\DatBlitzcrank.exe
+C:\Users\SuperNova\Documents\GitHub\EloBuddy\DatBlitzcrank\DatBlitzcrank\obj\Debug\DatBlitzcrank.pdb
