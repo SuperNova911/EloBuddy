@@ -371,7 +371,8 @@ namespace DatBlitzcrank
                 return;
             
             if (e.EndPos.Distance(Player.ServerPosition) > Config.SpellSetting.Q.MinrangeQ &&
-                     e.EndPos.Distance(Player.ServerPosition) < Config.SpellSetting.Q.MaxrangeQ)
+                     e.EndPos.Distance(Player.ServerPosition) < Config.SpellSetting.Q.MaxrangeQ &&
+                     Menu["grabMode" + Target.ChampionName].Cast<Slider>().CurrentValue == 3)
             {
                 Q.Cast(Q.GetPrediction(sender).CastPosition);
             }
