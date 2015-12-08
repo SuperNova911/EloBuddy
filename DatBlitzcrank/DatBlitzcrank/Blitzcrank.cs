@@ -53,9 +53,8 @@ namespace DatBlitzcrank
         {
             if (Player.ChampionName != "Blitzcrank")
                 return;
-                
+
             Config.Initialize();
-            Class1.Initialize();
 
             Menu = Config.Menu.AddSubMenu("Grab Mode", "grabMenu");
             Menu.AddGroupLabel("Grab Mode");
@@ -290,7 +289,7 @@ namespace DatBlitzcrank
                 {
                     Color = Menu["grabMode" + Target.ChampionName].Cast<Slider>().CurrentValue == 1 || 
                     Target.Distance(Player.ServerPosition) <= Config.SpellSetting.Q.MinrangeQ ? Color.Red 
-                    : TargetPred.HitChance > (HitChance)Config.SpellSetting.Q.HitchanceQ + 2 && !SpellShield(Target) ? Color.LawnGreen : Color.Orange,
+                    : TargetPred.HitChance >= HitChance.High && !SpellShield(Target) ? Color.LawnGreen : Color.Orange,
                     BorderWidth = 6,
                     Radius = 50
                 }.Draw(Target.Position);
@@ -362,7 +361,7 @@ namespace DatBlitzcrank
             }
         }
 
-        private static void Dash_OnDash(Obj_AI_Base sender, Dash.DashEventArgs e)
+        private static void Dash_OnDash(Obj_AI_Base sender, EloBuddy.SDK.Events.Dash.DashEventArgs e)
         {
             if (Player.IsDead || Player.IsRecalling())
                 return;

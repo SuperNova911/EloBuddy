@@ -57,29 +57,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Blitzcrank.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="DamageHandler.cs" />
     <Compile Include="DamageIndicator.cs" />
     <Compile Include="Interrupt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SDK\CustomEvents.cs" />
-    <Compile Include="SDK\Damage.cs" />
-    <Compile Include="SDK\Dash.cs" />
-    <Compile Include="SDK\Geometry.cs" />
-    <Compile Include="SDK\HealthPrediction.cs" />
-    <Compile Include="SDK\Items.cs" />
-    <Compile Include="SDK\MEC.cs" />
-    <Compile Include="SDK\MenuSDK.cs" />
-    <Compile Include="SDK\MinionManager.cs" />
-    <Compile Include="SDK\Orbwalking.cs" />
-    <Compile Include="SDK\Prediction.cs" />
-    <Compile Include="SDK\Render.cs" />
-    <Compile Include="SDK\Spell.cs" />
-    <Compile Include="SDK\TargetSelector.cs" />
-    <Compile Include="SDK\Utility.cs" />
     <Compile Include="SpellManager.cs" />
-    <Compile Include="SDK\Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
