@@ -20,3 +20,6 @@ C:\Users\SpringField\Documents\GitHub\Dev\Path Tracker\Path Tracker\bin\Debug\Ne
 C:\Users\SpringField\Documents\GitHub\Dev\Path Tracker\Path Tracker\obj\Debug\Path Tracker.csprojResolveAssemblyReference.cache
 C:\Users\SpringField\Documents\GitHub\Dev\Path Tracker\Path Tracker\obj\Debug\Path Tracker.exe
 C:\Users\SpringField\Documents\GitHub\Dev\Path Tracker\Path Tracker\obj\Debug\Path Tracker.pdb
+C:\Users\SpringField\Documents\GitHub\EloBuddy\Path Tracker\Path Tracker\bin\Debug\Path Tracker.exe.config
+C:\Users\SpringField\Documents\GitHub\EloBuddy\Path Tracker\Path Tracker\obj\Debug\Path Tracker.exe
+C:\Users\SpringField\Documents\GitHub\EloBuddy\Path Tracker\Path Tracker\obj\Debug\Path Tracker.pdb

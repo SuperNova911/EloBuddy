@@ -23,11 +23,11 @@ namespace Path_Tracker
         {
             Menu = MainMenu.AddMenu("Path Tracker", "Path Tracker");
             Menu.AddGroupLabel("Drawing");
-            Menu.Add("me", new CheckBox("My Path", true));
+            Menu.Add("me", new CheckBox("My Path", false));
             Menu.Add("ally", new CheckBox("Ally Path", false));
             Menu.Add("enemy", new CheckBox("Enemy Path", true));
             Menu.AddSeparator();
-            Menu.Add("eta", new CheckBox("Estimated time of arrival", true));
+            Menu.Add("eta", new CheckBox("Estimated time of arrival", false));
             Menu.Add("name", new CheckBox("Champion Name", true));
             Menu.Add("thick", new Slider("Line Thickness", 2, 1, 5));
 
