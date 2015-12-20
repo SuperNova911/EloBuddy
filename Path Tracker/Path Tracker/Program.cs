@@ -14,8 +14,6 @@ namespace Path_Tracker
     {
         public static Menu Menu;
 
-        public static float ETA = 0;
-
         static void Main(string[] args)
         {
             Loading.OnLoadingComplete += Loading_OnLoadingComplete;
@@ -29,6 +27,7 @@ namespace Path_Tracker
             Menu.Add("ally", new CheckBox("Ally Path", false));
             Menu.Add("enemy", new CheckBox("Enemy Path", true));
             Menu.AddLabel("Misc");
+            Menu.Add("toggle", new KeyBind("Toggle On/Off", true, KeyBind.BindTypes.PressToggle, 'G'));
             Menu.Add("eta", new CheckBox("Estimated time of arrival", false));
             Menu.Add("name", new CheckBox("Champion Name", true));
             Menu.Add("thick", new Slider("Line Thickness", 2, 1, 5));
@@ -44,6 +43,9 @@ namespace Path_Tracker
 
         private static void Drawing_OnDraw(EventArgs args)
         {
+            if (!Menu["toggle"].Cast<KeyBind>().CurrentValue)
+                return;
+
             var ETA = Menu["eta"].Cast<CheckBox>().CurrentValue;
             var Name = Menu["name"].Cast<CheckBox>().CurrentValue;
             var Thickness = Menu["thick"].Cast<Slider>().CurrentValue;
