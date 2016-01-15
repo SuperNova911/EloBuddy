@@ -43,66 +43,63 @@ namespace Path_Tracker
 
         private static void Drawing_OnDraw(EventArgs args)
         {
-            if (!Menu["toggle"].Cast<KeyBind>().CurrentValue)
+            if (!Menu["toggle"].Cast<KeyBind>().CurrentValue || !Enable())
                 return;
 
             var ETA = Menu["eta"].Cast<CheckBox>().CurrentValue;
             var Name = Menu["name"].Cast<CheckBox>().CurrentValue;
             var Thickness = Menu["thick"].Cast<Slider>().CurrentValue;
 
-            if (Menu["me"].Cast<CheckBox>().CurrentValue && Enable())
+            foreach (var hero in EntityManager.Heroes.AllHeroes.Where(h => h.IsValid))
             {
-                DrawPath(Player.Instance, Thickness, Color.LawnGreen);
-
-                if (ETA && Player.Instance.Path.Length > 1)
+                if (Menu["me"].Cast<CheckBox>().CurrentValue && hero.IsMe)
                 {
-                    Drawing.DrawText(Player.Instance.Path[Player.Instance.Path.Length - 1].WorldToScreen(), Color.NavajoWhite, GetETA(Player.Instance), 10);
+                    DrawPath(Player.Instance, Thickness, Color.LawnGreen);
+
+                    if (ETA && Player.Instance.Path.Length > 1 && Player.Instance.IsMoving)
+                        Drawing.DrawText(Player.Instance.Path[Player.Instance.Path.Length - 1].WorldToScreen(), Color.NavajoWhite, GetETA(Player.Instance), 10);
+
+                    continue;
                 }
-            }
-
-            if (Menu["ally"].Cast<CheckBox>().CurrentValue)
-            {
-                foreach (var ally in EntityManager.Heroes.Allies.Where(a => !a.IsMe && a.IsValid))
+                if (Menu["ally"].Cast<CheckBox>().CurrentValue && hero.IsAlly && !hero.IsMe)
                 {
-                    DrawPath(ally, Thickness, Color.Orange);
+                    DrawPath(hero, Thickness, Color.Orange);
 
-                    if (ally.Path.Length > 1)
+                    if (hero.Path.Length > 1 && hero.IsMoving)
                     {
                         if (Name)
-                        {
-                            Drawing.DrawText(ally.Path[ally.Path.Length - 1].WorldToScreen(), Color.LightSkyBlue, ally.BaseSkinName, 10);
-                        }
+                            Drawing.DrawText(hero.Path[hero.Path.Length - 1].WorldToScreen(), Color.LightSkyBlue, hero.BaseSkinName, 10);
+
                         if (ETA)
-                        {
-                            Drawing.DrawText(ally.Path[ally.Path.Length - 1].WorldToScreen() + new Vector2(0, 20), Color.NavajoWhite, GetETA(ally), 10);
-                        }
+                            Drawing.DrawText(hero.Path[hero.Path.Length - 1].WorldToScreen() + new Vector2(0, 20), Color.NavajoWhite, GetETA(hero), 10);
                     }
+
+                    continue;
                 }
-            }
 
-            if (Menu["enemy"].Cast<CheckBox>().CurrentValue)
-            {
-                foreach (var enemy in EntityManager.Heroes.Enemies.Where(e => e.IsValid))
+                if (Menu["enemy"].Cast<CheckBox>().CurrentValue && hero.IsEnemy)
                 {
-                    DrawPath(enemy, Thickness, Color.Red);
+                    DrawPath(hero, Thickness, Color.Red);
 
-                    if (enemy.Path.Length > 1)
+                    if (hero.Path.Length > 1 && hero.IsMoving)
                     {
                         if (Name)
-                        {
-                            Drawing.DrawText(enemy.Path[enemy.Path.Length - 1].WorldToScreen(), Color.LightSkyBlue, enemy.BaseSkinName, 10);
-                        }
+                            Drawing.DrawText(hero.Path[hero.Path.Length - 1].WorldToScreen(), Color.LightSkyBlue, hero.BaseSkinName, 10);
+
                         if (ETA)
-                        {
-                            Drawing.DrawText(enemy.Path[enemy.Path.Length - 1].WorldToScreen() + new Vector2(0, 20), Color.NavajoWhite, GetETA(enemy), 10);
-                        }
+                            Drawing.DrawText(hero.Path[hero.Path.Length - 1].WorldToScreen() + new Vector2(0, 20), Color.NavajoWhite, GetETA(hero), 10);
                     }
+
+                    continue;
                 }
             }
         }
 
         public static void DrawPath(AIHeroClient unit, int thickness, Color color)
         {
+            if (!unit.IsMoving)
+                return;
+
             for (var i = 1; unit.Path.Length > i; i++)
             {
                 if (unit.Path[i - 1].IsValid() && unit.Path[i].IsValid() && (unit.Path[i - 1].IsOnScreen() || unit.Path[i].IsOnScreen()))
