@@ -10,9 +10,27 @@ using Color = System.Drawing.Color;
 
 namespace Path_Tracker
 {
+    public class UnitData
+    {
+        public static string Name;
+
+        public static int StartTime;
+
+        public static void GetName(AIHeroClient unit)
+        {
+            Name = unit.BaseSkinName;
+        }
+
+        public static void GetStartTime(int time)
+        {
+            StartTime = time;
+        }
+    }
+
     public class Program
     {
         public static Menu Menu;
+        public static int start = 0;
 
         static void Main(string[] args)
         {
@@ -23,12 +41,12 @@ namespace Path_Tracker
         {
             Menu = MainMenu.AddMenu("Path Tracker", "Path Tracker");
             Menu.AddGroupLabel("Drawing");
-            Menu.Add("me", new CheckBox("My Path", false));
+            Menu.Add("me", new CheckBox("My Path", true));
             Menu.Add("ally", new CheckBox("Ally Path", false));
             Menu.Add("enemy", new CheckBox("Enemy Path", true));
             Menu.AddLabel("Misc");
             Menu.Add("toggle", new KeyBind("Toggle On/Off", true, KeyBind.BindTypes.PressToggle, 'G'));
-            Menu.Add("eta", new CheckBox("Estimated time of arrival", false));
+            Menu.Add("eta", new CheckBox("Estimated time of arrival (only me)", true));
             Menu.Add("name", new CheckBox("Champion Name", true));
             Menu.Add("thick", new Slider("Line Thickness", 2, 1, 5));
             Menu.AddGroupLabel("Disable while use orbwalk");
@@ -39,6 +57,23 @@ namespace Path_Tracker
             Menu.Add("flee", new CheckBox("Flee", false));
 
             Drawing.OnDraw += Drawing_OnDraw;
+            Obj_AI_Base.OnNewPath += Obj_AI_Base_OnNewPath;
+        }
+
+        private static void Obj_AI_Base_OnNewPath(Obj_AI_Base sender, GameObjectNewPathEventArgs args)
+        {
+            if (!sender.IsMe)
+                return;
+
+            start = TickCount;
+        }
+
+        public static int TickCount
+        {
+            get
+            {
+                return Environment.TickCount & int.MaxValue;
+            }
         }
 
         private static void Drawing_OnDraw(EventArgs args)
@@ -70,7 +105,7 @@ namespace Path_Tracker
                         if (Name)
                             Drawing.DrawText(hero.Path[hero.Path.Length - 1].WorldToScreen(), Color.LightSkyBlue, hero.BaseSkinName, 10);
 
-                        if (ETA)
+                        if (ETA && false)
                             Drawing.DrawText(hero.Path[hero.Path.Length - 1].WorldToScreen() + new Vector2(0, 20), Color.NavajoWhite, GetETA(hero), 10);
                     }
 
@@ -86,7 +121,7 @@ namespace Path_Tracker
                         if (Name)
                             Drawing.DrawText(hero.Path[hero.Path.Length - 1].WorldToScreen(), Color.LightSkyBlue, hero.BaseSkinName, 10);
 
-                        if (ETA)
+                        if (ETA && false)
                             Drawing.DrawText(hero.Path[hero.Path.Length - 1].WorldToScreen() + new Vector2(0, 20), Color.NavajoWhite, GetETA(hero), 10);
                     }
 
@@ -112,7 +147,7 @@ namespace Path_Tracker
         public static string GetETA(AIHeroClient unit)
         {
             float Distance = 0;
-
+            
             if (unit.Path.Length > 1)
             {
                 for (var i = 1; unit.Path.Length > i; i++)
@@ -120,8 +155,13 @@ namespace Path_Tracker
                     Distance += unit.Path[i - 1].Distance(unit.Path[i]);
                 }
             }
+
+            var ETA = (start + Distance / unit.MoveSpeed * 1000 - TickCount) / 1000;
+
+            if (ETA <= 0)
+                ETA = 0;
             
-            return (Distance / unit.MoveSpeed).ToString("F1");
+            return ETA.ToString("F2");
         }
 
         public static bool Enable()
