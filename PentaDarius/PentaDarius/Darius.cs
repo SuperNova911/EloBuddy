@@ -383,7 +383,13 @@ namespace PentaDarius
                 if (tower == null)
                     return;
 
-                if (tower.Distance(Player) < 750 && ETarget.IsValidTarget() && Player.HealthPercent > 30 && Player.CountEnemiesInRange(E.Range) <= 2)
+                if (Player.ManaPercent < 50)
+                    return;
+
+                if (tower.Distance(ETarget) < 750)
+                    return;
+
+                if (tower.Distance(Player) < 650 && ETarget.IsValidTarget() && Player.HealthPercent > 50 && Player.CountEnemiesInRange(E.Range) <= 2)
                     CastE();
             }
 
