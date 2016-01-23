@@ -97,6 +97,10 @@ namespace PentaDarius
             //DrawMenu.Add("drawFlashR", new CheckBox("Draw Flash R", false));
             //DrawMenu.AddSeparator();
             DrawMenu.Add("drawText", new CheckBox("Draw Text", true));
+            DrawMenu.AddSeparator();
+            DrawMenu.AddLabel("   Draw E Color");
+            DrawMenu.AddLabel("Orange : Lock on target");
+            DrawMenu.AddLabel("Red : Can Grab");
             #endregion
 
             if (Menu["debug"].Cast<CheckBox>().CurrentValue)

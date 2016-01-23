@@ -323,7 +323,7 @@ namespace PentaDarius
 
             public static void CastE()
             {
-                if (!E.IsReady() || !ETarget.IsValidTarget() || ETarget.IsZombie || ETarget.HasSpellShield())
+                if (!E.IsReady() || !ETarget.IsValidTarget() || ETarget.IsZombie || ETarget.HasSpellShield() || ETarget.HasBuff("FioraW"))
                     return;
 
                 if (Config.SpellMenu["saveRMana"].Cast<CheckBox>().CurrentValue && Player.Mana - Utility.QMana() <= Utility.RMana())
@@ -507,7 +507,7 @@ namespace PentaDarius
 
             var h = target as AIHeroClient;
 
-            if (h.IsValidTarget() && W.IsReady())
+            if (h.IsValidTarget() && W.IsReady() && !h.HasBuff("FioraW"))
             {
                 W.Cast();
                 Orbwalker.ResetAutoAttack();
