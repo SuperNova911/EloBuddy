@@ -37,7 +37,7 @@ namespace PentaDarius
             if (Player.Instance.HealthPercent >= 75 && unit.HealthPercent <= 25 && result.IsAlone && SpellManager.R.Level < 3 && Config.SpellMenu["unneR"].Cast<CheckBox>().CurrentValue)
                 result.Unnecessary = true;
 
-            if (!unit.IsValidTarget(SpellManager.R.Range + SpellManager.Flash.Range) && unit.HasSpellShield() && unit.HasBuff("kindredrnodeathbuff") && unit.HasBuff("FioraW"))
+            if (!unit.IsValidTarget(SpellManager.R.Range + SpellManager.Flash.Range) || unit.HasSpellShield() || unit.HasBuff("kindredrnodeathbuff") || unit.HasBuff("FioraW") || unit.HasBuff("UndyingRage"))
                 return result;
 
             if (Player.Instance.CountEnemiesInRange(1500) == 1)

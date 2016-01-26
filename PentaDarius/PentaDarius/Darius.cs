@@ -423,6 +423,8 @@ namespace PentaDarius
                     if (enemy.GetResult().IsKillable && enemy.GetResult().Range == UltRange.RRange && R.IsReady())
                         continue;
 
+                    if (enemy.HasBuff("kindredrnodeathbuff") || enemy.HasBuff("UndyingRage"))
+
                     if (enemy.ServerPosition.Distance(Player.ServerPosition) < Player.AttackRange && Player.HealthPercent < 30)
                         continue;
 
