@@ -378,7 +378,10 @@ namespace PentaDarius
                 if (Config.SpellMenu["saveRMana"].Cast<CheckBox>().CurrentValue && Player.Mana - Utility.QMana() <= Utility.RMana())
                     return;
 
-                var tower = EntityManager.Turrets.Allies.OrderBy(t => t.Distance(Player)).First();
+                if (ETarget == null)
+                    return;
+
+                var tower = EntityManager.Turrets.Allies.OrderBy(t => t.Position.Distance(Player.Position)).FirstOrDefault();
 
                 if (tower == null)
                     return;
@@ -386,10 +389,10 @@ namespace PentaDarius
                 if (Player.ManaPercent < 50)
                     return;
 
-                if (tower.Distance(ETarget) < 750)
+                if (tower.Position.Distance(ETarget.Position) < 750 && ETarget.IsValidTarget())
                     return;
 
-                if (tower.Distance(Player) < 650 && ETarget.IsValidTarget() && Player.HealthPercent > 50 && Player.CountEnemiesInRange(E.Range) <= 2)
+                if (tower.Position.Distance(Player.Position) < 650 && ETarget.IsValidTarget() && Player.HealthPercent > 50 && Player.CountEnemiesInRange(E.Range) <= 2)
                     CastE();
             }
 
