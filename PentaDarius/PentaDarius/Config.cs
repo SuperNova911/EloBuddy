@@ -6,6 +6,10 @@ namespace PentaDarius
     public class Config
     {
         public static Menu Menu, DrawMenu, DebugMenu, SpellMenu, OrbMenu;
+        private static readonly string[] SkinName =
+        {
+            "Classic", "Lord Darius", "Bioforge Darius", "Woad King Darius", "Dunkmaster Darius", "Academy Darius"
+        };
 
         static Config()
         {
@@ -13,20 +17,12 @@ namespace PentaDarius
             Menu.AddGroupLabel("Penta Darius");
             Menu.Add("damageIndicator", new CheckBox("Damage Indicator", true));
             Menu.Add("drawing", new CheckBox("Enable Drawing", true));
-            Menu.Add("skin", new CheckBox("Skin Changer", false));
-            Menu.Add("debug", new CheckBox("Enable Debug  (need F5)", false));
             Menu.Add("useItem", new CheckBox("Use Item", true));
             Menu.AddSeparator();
-            Menu.AddGroupLabel("SkinChanger");
-            var skin = Menu.Add("sID", new Slider("Skin", 0, 0, 5));
-            var sID = new[] { "Classic", "Lord Darius", "Bioforge Darius", "Woad King Darius", "Dunkmaster Darius", "Academy Darius" };
-            skin.DisplayName = sID[skin.CurrentValue];
-
-            skin.OnValueChange +=
-                delegate (ValueBase<int> sender, ValueBase<int>.ValueChangeArgs changeArgs)
-                {
-                    sender.DisplayName = sID[changeArgs.NewValue];
-                };
+            Menu.Add("skin", new CheckBox("Skin Changer", false));
+            Menu.Add("sID", new ComboBox("Skin Changer: ", 0, SkinName));
+            Menu.AddSeparator();
+            Menu.Add("debug", new CheckBox("Enable Debug  (need F5)", false));
             Menu.AddSeparator();
             Menu.AddGroupLabel("Credit");
             Menu.AddLabel("Addon - by Tychus");

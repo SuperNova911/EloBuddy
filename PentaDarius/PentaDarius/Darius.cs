@@ -65,27 +65,25 @@ namespace PentaDarius
         {
             if (!Config.Menu["skin"].Cast<CheckBox>().CurrentValue)
                 return;
-
-            var skin = Config.Menu["sID"].DisplayName;
-
-            switch (skin)
+            
+            switch (Config.Menu["sID"].Cast<ComboBox>().CurrentValue)
             {
-                case "Classic":
+                case 0:
                     Player.SetSkinId(0);
                     break;
-                case "Lord Darius":
+                case 1:
                     Player.SetSkinId(1);
                     break;
-                case "Bioforge Darius":
+                case 2:
                     Player.SetSkinId(2);
                     break;
-                case "Woad King Darius":
+                case 3:
                     Player.SetSkinId(3);
                     break;
-                case "Dunkmaster Darius":
+                case 4:
                     Player.SetSkinId(4);
                     break;
-                case "Academy Darius":
+                case 5:
                     Player.SetSkinId(8);
                     break;
             }
