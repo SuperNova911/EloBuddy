@@ -26,7 +26,7 @@ namespace TimerBuddy
                 var spellList = SpellDatabase.Database.Where(s => heroName.Contains(s.ChampionName) && s.SpellType == SpellType.Spell).ToList();
 
                 #region Main Menu
-                Menu = MainMenu.AddMenu("TimerBuddy", "TimerBuddy", "TimerBuddy - Life is about Timing!");
+                Menu = MainMenu.AddMenu("TimerBuddy", "TimerBuddy", "TimerBuddy - Life is all about Timing!");
                 Menu.AddGroupLabel("Welcome to TimerBuddy xD");
                 Menu.AddLabel(string.Format("{0} datas Loaded", summonerList.Count + itemList.Count + trapList.Count + spellList.Count + wardList.Count));
                 Menu.AddGroupLabel("General Settings");
