@@ -609,7 +609,7 @@ namespace TimerBuddy
 
 
                 var database = SC2TimerDatabase.Database.FirstOrDefault(d =>
-                ((d.SC2Type == SC2Type.SummonerSpell && d.Name == args.SData.Name) ||
+                ((d.SC2Type == SC2Type.SummonerSpell && d.Name == args.SData.Name && sender.IsMe) ||
                 (d.SC2Type == SC2Type.Spell && d.ChampionName == sender.BaseSkinName && d.Slot == args.Slot)));
 
                 if (database != null)
