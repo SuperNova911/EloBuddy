@@ -336,7 +336,7 @@ namespace TimerBuddy
                 int minImportance = Config.Menu.ComboBoxValue("minImportance");
 
                 foreach (var list in Timer.Where(d => d.EndTime >= (d.Buff ? Game.Time : Utility.TickCount) &&
-                ((d.SpellType == SpellType.Spell || d.SpellType == SpellType.SummonerSpell) ? d.GetImportance().ToInt() >= minImportance : true)))
+                ((d.SpellType == SpellType.Spell || d.SpellType == SpellType.SummonerSpell || d.SpellType == SpellType.Item) ? d.GetImportance().ToInt() >= minImportance : true)))
                 {
                     DrawTimer(list);
                 }
@@ -354,7 +354,7 @@ namespace TimerBuddy
                 int minImportance = Config.Menu.ComboBoxValue("minImportance");
 
                 foreach (var list in TimerLine.Where(d => d.EndTime >= (d.Buff ? Game.Time : Utility.TickCount) &&
-                ((d.SpellType == SpellType.Spell || d.SpellType == SpellType.SummonerSpell) ? d.GetImportance().ToInt() >= minImportance : true)))
+                ((d.SpellType == SpellType.Spell || d.SpellType == SpellType.SummonerSpell || d.SpellType == SpellType.Item) ? d.GetImportance().ToInt() >= minImportance : true)))
                 {
                     DrawTimerLine(list);
                 }

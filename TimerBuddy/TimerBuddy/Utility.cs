@@ -119,6 +119,8 @@ namespace TimerBuddy
             {
                 switch (spell.SpellType)
                 {
+                    case SpellType.Item:
+                        return Config.ItemMenu.GetImportance(spell.MenuCode + "importance");
 
                     case SpellType.Spell:
                         return Config.SpellMenu.GetImportance(spell.MenuCode + "importance");

@@ -128,6 +128,7 @@ namespace TimerBuddy
                         ItemMenu.AddBlank(i.MenuCode + "blank");
                         ItemMenu.AddCheckBox(i.MenuCode + "ally", "Draw ally Item", true);
                         ItemMenu.AddCheckBox(i.MenuCode + "enemy", "Draw enemy Item", true);
+                        ItemMenu.AddImportanceItem(i.MenuCode + "importance", "Importance Level: ", i.Importance.ToInt());
                         ItemMenu.AddDrawTypeItem(i.MenuCode + "drawtype", "Drawing Style: ", i.DrawType.ToInt());
                         ItemMenu.AddColorItem(i.MenuCode + "color");
                         ItemMenu.AddSeparator();
