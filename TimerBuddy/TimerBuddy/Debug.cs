@@ -1,4 +1,5 @@
 ﻿using EloBuddy;
+using EloBuddy.SDK.Rendering;
 using SharpDX;
 //using EloBuddy.SDK.Rendering;
 using System;
@@ -23,6 +24,28 @@ namespace TimerBuddy
         {
             //DrawManager.Test();
             //new Circle { Color = System.Drawing.Color.AliceBlue, Radius = 3500 }.Draw(Player.Instance.Position);
+            var c1 = Config.DebugMenu.CheckboxValue("c1");
+            var c2 = Config.DebugMenu.CheckboxValue("c2");
+            var c3 = Config.DebugMenu.CheckboxValue("c3");
+            var s1 = Config.DebugMenu.SliderValue("s1");
+            var s2 = Config.DebugMenu.SliderValue("s2");
+            var s3 = Config.DebugMenu.SliderValue("s3");
+
+            if (c1)
+            {
+                for (var i = 1; i <= s1; i++)
+                    Drawing.DrawCircle(Player.Instance.Position, 300f, System.Drawing.Color.Orange);
+            }
+            if (c2)
+            {
+                for (var i = 1; i <= s2; i++)
+                    Circle.Draw(Color.Orange, 400f, 2f, Player.Instance.Position);
+            }
+            if (c3)
+            {
+                for (var i = 1; i <= s3; i++)
+                    new Circle { Color = System.Drawing.Color.Orange, Radius = 500f, BorderWidth = 2f }.Draw(Player.Instance.Position);
+            }
         }
 
         private static void Drawing_OnEndScene(EventArgs args)
@@ -31,7 +54,7 @@ namespace TimerBuddy
             var gap = 0;
             foreach (var list in Program.SC2TimerList)
             {
-                Drawing.DrawText(Game.CursorPos2D + new Vector2(0, gap), System.Drawing.Color.Orange,
+                Drawing.DrawText(new Vector2(20, 20) + new Vector2(0, gap), System.Drawing.Color.Orange,
                     string.Format("DisplayName: {0} | SC2Type: {1} | EndTime: {2}", list.DisplayName, list.SC2Type.ToString(), ((list.EndTime - Utility.TickCount) / 1000f)), 10);
                 gap += 20;
             }

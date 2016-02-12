@@ -271,7 +271,7 @@ namespace TimerBuddy
                 new Spell { SpellType = SpellType.Spell, Buff = true, ChampionName = "JarvanIV", Name = "JarvanIVDragonStrikeDebuff", MenuCode = "JarvanIV Q", SpriteName = Resources.JarvanQ, Importance = Importance.Low },
                 new Spell { SpellType = SpellType.Spell, Buff = true, ChampionName = "JarvanIV", Name = "JarvanIVGoldenAegis", MenuCode = "JarvanIV W", SpriteName = Resources.JarvanW },
                 new Spell { SpellType = SpellType.Spell, Slot = SpellSlot.E, GameObject = true, ChampionName = "JarvanIV", Name = "Beacon", ObjectName = "JarvanIVStandard", EndTime = 8000, MenuCode = "JarvanIV E", SpriteName = Resources.JarvanE },
-                new Spell { SpellType = SpellType.Spell, Slot = SpellSlot.R, ChampionName = "JarvanIV", EndTime = 3500 + 250, SkillShot = true, MenuCode = "JarvanIV R", SpriteName = Resources.JarvanR, Importance = Importance.High },
+                //new Spell { SpellType = SpellType.Spell, Slot = SpellSlot.R, ChampionName = "JarvanIV", EndTime = 3500 + 250, SkillShot = true, MenuCode = "JarvanIV R", SpriteName = Resources.JarvanR, Importance = Importance.High },
                 //new Spell { SpellType = SpellType.Spell, Slot = SpellSlot.R, GameObject = true, ChampionName = "JarvanIV", Name = "", EndTime = 3500, MenuCode = "JarvanIV R", SpriteName = Resources.JarvanR },
                 
                 new Spell { SpellType = SpellType.Spell, Buff = true, ChampionName = "Jax", Name = "JaxRelentlessAssaultAS", MenuCode = "Jax Passive", SpriteName = Resources.JaxPassive, OnlyMe = true },

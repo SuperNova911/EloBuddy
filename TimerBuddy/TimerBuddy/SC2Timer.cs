@@ -524,10 +524,8 @@ namespace TimerBuddy
                     var kappa = 240 - (float)(Math.Pow(Utility.TickCount - (slot.StartTime + slot.Duration + 3000 - moveTime), 3) / Math.Pow(moveTime, 3) * 240);
                     centerpos = centerpos + new Vector2(240 - kappa, 0);
                 }
-
-
+                
                 Drawing.DrawLine(centerpos + new Vector2(0, 41), centerpos + new Vector2(240, 41), 82, System.Drawing.Color.Black);
-
                 TextureDraw.DrawSC2Hud(sc2, centerpos);
             }
             catch (Exception e)
@@ -720,7 +718,7 @@ namespace TimerBuddy
             {
                 if (Program.SC2TimerList.Count > 0)
                 {
-                    //Program.SC2TimerList.RemoveAll(d => d.EndTime + 3500 < Utility.TickCount);
+                    Program.SC2TimerList.RemoveAll(d => d.EndTime + 3500 < Utility.TickCount);
                 }
             }
             catch (Exception e)

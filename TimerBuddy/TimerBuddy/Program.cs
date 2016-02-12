@@ -1,5 +1,6 @@
 ﻿using EloBuddy;
 using EloBuddy.SDK.Events;
+using SharpDX;
 using System;
 using System.Collections.Generic;
 
