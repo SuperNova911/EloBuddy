@@ -572,7 +572,8 @@ namespace TimerBuddy
                 sc2.Caster != null && sc2.Caster.IsMe ? System.Drawing.Color.Lime : sc2.Team == Team.Ally ? System.Drawing.Color.DarkCyan : sc2.Team == Team.Enemy ? System.Drawing.Color.Red : System.Drawing.Color.Orange);
 
                 var iconpos = centerpos + new Vector2(25, 25);
-                TextureDraw.SpriteList[sc2.GetMenuCode()].Draw(iconpos);
+                
+                TextureDraw.DrawSprite(iconpos, sc2.GetMenuCode());
 
                 DrawManager.SC2Font.DrawText(null, name, (int)(namepos).X, (int)(namepos).Y, SharpDX.Color.White);
                 DrawManager.SC2Font2.DrawText(null, timer, (int)(timerpos).X, (int)(timerpos).Y, SharpDX.Color.White);

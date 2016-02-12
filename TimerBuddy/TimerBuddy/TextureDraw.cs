@@ -28,7 +28,7 @@ namespace TimerBuddy
                 var trapList = SpellDatabase.Database.Where(t => heroName.Contains(t.ChampionName) && t.SpellType == SpellType.Trap).ToList();
                 var spellList = SpellDatabase.Database.Where(s => heroName.Contains(s.ChampionName) && s.SpellType == SpellType.Spell).ToList();
                 var sc2List = SC2TimerDatabase.Database.Where(d => (heroName.Contains(d.ChampionName) && d.SC2Type == SC2Type.Spell) || (d.SC2Type != SC2Type.Spell)).ToList();
-
+                
                 foreach (var list in summonerList)
                 {
                     if (SpriteList.ContainsKey(list.MenuCode))
@@ -76,17 +76,14 @@ namespace TimerBuddy
                     SpriteList.Add(menucode, new Sprite(() => TextureLoader[menucode]));
                 }
 
-                if (true)
-                {
-                    TextureLoader.Load("SC2Green", Resources.SC2Green);
-                    SpriteList.Add("SC2Green", new Sprite(() => TextureLoader["SC2Green"]));
-                    TextureLoader.Load("SC2Blue", Resources.SC2Blue);
-                    SpriteList.Add("SC2Blue", new Sprite(() => TextureLoader["SC2Blue"]));
-                    TextureLoader.Load("SC2Orange", Resources.SC2Orange);
-                    SpriteList.Add("SC2Orange", new Sprite(() => TextureLoader["SC2Orange"]));
-                    TextureLoader.Load("SC2Red", Resources.SC2Red);
-                    SpriteList.Add("SC2Red", new Sprite(() => TextureLoader["SC2Red"]));
-                }
+                TextureLoader.Load("SC2Green", Resources.SC2Green);
+                SpriteList.Add("SC2Green", new Sprite(() => TextureLoader["SC2Green"]));
+                TextureLoader.Load("SC2Blue", Resources.SC2Blue);
+                SpriteList.Add("SC2Blue", new Sprite(() => TextureLoader["SC2Blue"]));
+                TextureLoader.Load("SC2Orange", Resources.SC2Orange);
+                SpriteList.Add("SC2Orange", new Sprite(() => TextureLoader["SC2Orange"]));
+                TextureLoader.Load("SC2Red", Resources.SC2Red);
+                SpriteList.Add("SC2Red", new Sprite(() => TextureLoader["SC2Red"]));
             }
             catch (Exception e)
             {
@@ -105,7 +102,19 @@ namespace TimerBuddy
                 e.ErrorMessage("DRAW_SPRITE", spell.MenuCode);
             }
         }
-        
+
+        public static void DrawSprite(Vector2 pos, string menucode)
+        {
+            try
+            {
+                SpriteList[menucode].Draw(pos);
+            }
+            catch (Exception e)
+            {
+                e.ErrorMessage("DRAW_SPRITE_SC2", menucode);
+            }
+        }
+
         public static void DrawSC2Hud(SC2Timer sc2, Vector2 position)
         {
             try

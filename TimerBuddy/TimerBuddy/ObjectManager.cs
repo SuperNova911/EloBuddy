@@ -287,7 +287,9 @@ namespace TimerBuddy
                 //new Spell { SpellType = SpellType.Spell, Buff = true, ChampionName = "Jinx", Name = "", MenuCode = "Jinx Passive", SpriteName = Resources.JinxPassive },
                 //new Spell { SpellType = SpellType.Spell, Buff = true, ChampionName = "Jinx", Name = "", MenuCode = "Jinx Q", SpriteName = Resources.JinxQ },
                 
-                new Spell { SpellType = SpellType.Spell, Buff = true, ChampionName = "Kalista", Name = "KalistaPassiveCoopStrike", MenuCode = "Kalista W", SpriteName = Resources.KalistaW, OnlyMe = true, Importance = Importance.Low },
+                new Spell { SpellType = SpellType.Spell, Buff = true, ChampionName = "Kalista", Name = "kalistacoopstrikemarkself", MenuCode = "Kalista W", SpriteName = Resources.KalistaW, OnlyMe = true, Importance = Importance.Low },
+                new Spell { SpellType = SpellType.Spell, Buff = true, ChampionName = "Kalista", Name = "kalistacoopstrikemarkally", MenuCode = "Kalista W", SpriteName = Resources.KalistaW, OnlyMe = true, Importance = Importance.Low },
+                new Spell { SpellType = SpellType.Spell, Buff = true, ChampionName = "Kalista", Name = "kalistacoopstrikemarkenemy", MenuCode = "Kalista W", SpriteName = Resources.KalistaW, OnlyMe = true, Importance = Importance.Low },
                 new Spell { SpellType = SpellType.Spell, Buff = true, ChampionName = "Kalista", Name = "KalistaExpungeMarker", MenuCode = "Kalista E", SpriteName = Resources.KalistaE, Importance = Importance.High },
                 new Spell { SpellType = SpellType.Spell, Buff = true, ChampionName = "Kalista", Name = "KalistaRx", MenuCode = "Kalista R", SpriteName = Resources.KalistaR, Importance = Importance.High },
                 

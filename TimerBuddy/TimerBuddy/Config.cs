@@ -183,7 +183,7 @@ namespace TimerBuddy
                 MiscMenu.AddCheckBox("blinkAlly", "Draw Ally", false);
                 MiscMenu.AddCheckBox("blinkEnemy", "Draw Enemy", true);
                 #endregion
-                
+                /*
                 DebugMenu = Menu.AddSubMenu("Debug");
                 DebugMenu.Add("s1", new Slider("Slider 1", 0, 0, 200));
                 DebugMenu.Add("s2", new Slider("Slider 2", 0, 0, 200));
@@ -192,7 +192,7 @@ namespace TimerBuddy
                 DebugMenu.Add("s5", new Slider("Slider 5", 0, 0, 200));
                 DebugMenu.Add("c1", new CheckBox("CheckBox 1"));
                 DebugMenu.Add("c2", new CheckBox("CheckBox 2"));
-                DebugMenu.Add("c3", new CheckBox("CheckBox 3"));
+                DebugMenu.Add("c3", new CheckBox("CheckBox 3"));*/
             }
             catch (Exception e)
             {
