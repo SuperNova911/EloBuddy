@@ -364,7 +364,7 @@ namespace TimerBuddy
                 e.ErrorMessage("TIMER_LINE_MANAGER");
             }
         }
-
+        
         private static void DrawLine(Spell spell)
         {
             try

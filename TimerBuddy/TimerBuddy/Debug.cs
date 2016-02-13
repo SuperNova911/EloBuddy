@@ -3,6 +3,7 @@ using EloBuddy.SDK.Rendering;
 using SharpDX;
 //using EloBuddy.SDK.Rendering;
 using System;
+using System.Linq;
 
 namespace TimerBuddy
 {
@@ -51,13 +52,14 @@ namespace TimerBuddy
         private static void Drawing_OnEndScene(EventArgs args)
         {
             //DrawManager.Test2();
+            /*
             var gap = 0;
-            foreach (var list in Program.SC2TimerList)
+            foreach (var list in SpellDatabase.Database.Where(d => d.SpellType == SpellType.Spell))
             {
                 Drawing.DrawText(new Vector2(20, 20) + new Vector2(0, gap), System.Drawing.Color.Orange,
-                    string.Format("DisplayName: {0} | SC2Type: {1} | EndTime: {2}", list.DisplayName, list.SC2Type.ToString(), ((list.EndTime - Utility.TickCount) / 1000f)), 10);
+                    string.Format("ChampionName: {0} | Slot: {1} | MenuCode: {2}", list.ChampionName, list.Slot.ToString(), list.MenuCode), 10);
                 gap += 20;
-            }
+            }*/
             
         }
 

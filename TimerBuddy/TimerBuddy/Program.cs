@@ -1,5 +1,6 @@
 ﻿using EloBuddy;
 using EloBuddy.SDK.Events;
+using EloBuddy.SDK.Rendering;
 using SharpDX;
 using System;
 using System.Collections.Generic;
@@ -35,7 +36,7 @@ namespace TimerBuddy
                 SC2TimerManager.Initialize();
                 DrawManager.Initialize();
                 //Debug.Initialize();
-
+                
                 Drawing.OnEndScene += Drawing_OnEndScene;
                 
                 Chat.Print("<font color='#9400D3'>TimerBuddy</font> <font color='#FFFFFF'>Loaded</font>");
@@ -45,7 +46,7 @@ namespace TimerBuddy
                 e.ErrorMessage("MAIN_INIT");
             }
         }
-        
+
         private static void Drawing_OnEndScene(EventArgs args)
         {
             try
