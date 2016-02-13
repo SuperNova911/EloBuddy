@@ -193,6 +193,14 @@ namespace TimerBuddy
                 DebugMenu.Add("c1", new CheckBox("CheckBox 1"));
                 DebugMenu.Add("c2", new CheckBox("CheckBox 2"));
                 DebugMenu.Add("c3", new CheckBox("CheckBox 3"));*/
+
+                hero.Clear();
+                summonerList.Clear();
+                spellList.Clear();
+                itemList.Clear();
+                wardList.Clear();
+                trapList.Clear();
+                MenuChecker.Clear();
             }
             catch (Exception e)
             {

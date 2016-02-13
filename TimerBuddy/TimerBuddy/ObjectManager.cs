@@ -150,7 +150,6 @@ namespace TimerBuddy
                 //new Spell { SpellType = SpellType.Spell, Slot = SpellSlot.R, GameObject = true, ChampionName = "Shen", Name = "shen_Teleport_target_v2.troy", EndTime = 3000, MenuCode = "Shen R", SpriteName = Resources. },
                 //new Spell { SpellType = SpellType.Spell, Slot = SpellSlot.R, GameObject = true, ChampionName = "Shen", Name = "ShenTeleport_v2.troy", EndTime = 3000, MenuCode = "Shen R", SpriteName = Resources. },
             };
-
             
             #region Spell
             if (Hero.Contains("Aatrox"))

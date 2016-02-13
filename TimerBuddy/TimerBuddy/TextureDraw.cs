@@ -84,6 +84,13 @@ namespace TimerBuddy
                 SpriteList.Add("SC2Orange", new Sprite(() => TextureLoader["SC2Orange"]));
                 TextureLoader.Load("SC2Red", Resources.SC2Red);
                 SpriteList.Add("SC2Red", new Sprite(() => TextureLoader["SC2Red"]));
+
+                hero.Clear();
+                summonerList.Clear();
+                spellList.Clear();
+                itemList.Clear();
+                trapList.Clear();
+                sc2List.Clear();
             }
             catch (Exception e)
             {
