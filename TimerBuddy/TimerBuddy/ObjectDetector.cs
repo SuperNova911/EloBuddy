@@ -127,7 +127,7 @@ namespace TimerBuddy
                         ObjectName = database.ObjectName,
                         MenuCode = database.MenuCode,
                         FullTime = database.EndTime,
-                        EndTime = database.EndTime + Utility.TickCount,
+                        EndTime = database.SpellType == SpellType.Trap ? (sender as Obj_AI_Base).Mana * 1000 + Utility.TickCount : database.EndTime + Utility.TickCount,
                         NetworkID = sender.NetworkId,
                         GameObject = database.GameObject,
                         OnlyMe = database.OnlyMe,

@@ -138,7 +138,7 @@ namespace TimerBuddy
                 #endregion
 
                 #region Trap
-                new Spell { SpellType = SpellType.Trap, Slot = SpellSlot.R, GameObject = true, ChampionName = "Teemo", Name = "Noxious Trap", ObjectName = "TeemoMushroom", EndTime = 600000, MenuCode = "Teemo Trap", SpriteName = Resources.TeemoR },
+                new Spell { SpellType = SpellType.Trap, Slot = SpellSlot.R, GameObject = true, ChampionName = "Teemo", Name = "Noxious Trap", ObjectName = "TeemoMushroom", EndTime = 300000, MenuCode = "Teemo Trap", SpriteName = Resources.TeemoR },
                 new Spell { SpellType = SpellType.Trap, Slot = SpellSlot.W, GameObject = true, ChampionName = "Nidalee", Name = "Noxious Trap", ObjectName = "NidaleeSpear", EndTime = 120000, MenuCode = "Nidalee Trap", SpriteName = Resources.NidaleeHumanW },
                 new Spell { SpellType = SpellType.Trap, Slot = SpellSlot.W, GameObject = true, ChampionName = "Caitlyn", Name = "Cupcake Trap", EndTime = 90000, MenuCode = "Caitlyn Trap", SpriteName = Resources.CaitlynW },
                 new Spell { SpellType = SpellType.Trap, Slot = SpellSlot.E, GameObject = true, ChampionName = "Jinx", Name = "JinxEMine", ObjectName = "Jinx Mine", EndTime = 5000, MenuCode = "Jinx Mine", SpriteName = Resources.JinxE },
