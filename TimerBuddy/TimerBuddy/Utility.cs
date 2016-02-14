@@ -1,7 +1,7 @@
 ﻿using EloBuddy;
 using EloBuddy.SDK;
 using EloBuddy.SDK.Menu.Values;
-//using EloBuddy.SDK.Rendering;
+using EloBuddy.SDK.Rendering;
 using SharpDX;
 using System;
 using System.Linq;
@@ -383,7 +383,7 @@ namespace TimerBuddy
                     foreach (var enemy in EntityManager.Heroes.AllHeroes.Where(d => !d.IsDead && d.VisibleOnScreen &&
                     (d.BaseSkinName == "Leblanc" || d.BaseSkinName == "Shaco" || d.BaseSkinName == "MonkeyKing" || d.BaseSkinName == "Yorick")))
                     {
-                        // Kappa new Circle { Color = System.Drawing.Color.Gold, Radius = enemy.BoundingRadius, BorderWidth = 4 }.Draw(enemy.Position);
+                        Circle.Draw(Color.Gold, enemy.BoundingRadius, 4, enemy.Position);
                     }
                 }
             }

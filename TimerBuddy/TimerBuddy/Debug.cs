@@ -54,7 +54,7 @@ namespace TimerBuddy
             //DrawManager.Test2();
             /*
             var gap = 0;
-            foreach (var list in SpellDatabase.Database.Where(d => d.SpellType == SpellType.Spell))
+            foreach (var list in Program.SpellDB.Where(d => d.SpellType == SpellType.Spell))
             {
                 Drawing.DrawText(new Vector2(20, 20) + new Vector2(0, gap), System.Drawing.Color.Orange,
                     string.Format("ChampionName: {0} | Slot: {1} | MenuCode: {2}", list.ChampionName, list.Slot.ToString(), list.MenuCode), 10);

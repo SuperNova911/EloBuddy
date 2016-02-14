@@ -1,7 +1,7 @@
 ﻿using EloBuddy;
 using EloBuddy.SDK;
 using EloBuddy.SDK.Menu.Values;
-//using EloBuddy.SDK.Rendering;
+using EloBuddy.SDK.Rendering;
 using SharpDX;
 using SharpDX.Direct3D9;
 using System;
@@ -483,7 +483,7 @@ namespace TimerBuddy
                     if (spell.Team == Team.Ally && Config.TrapMenu.CheckboxValue("circleOnlyEnemy"))
                         return;
 
-                    // Kappa Circle.Draw(spell.GetColor(), spell.Object.BoundingRadius, 4, spell.Object.Position);
+                    Circle.Draw(spell.GetColor(), spell.Object.BoundingRadius, 4, spell.Object.Position);
                 }
             }
             catch (Exception e)
@@ -519,8 +519,7 @@ namespace TimerBuddy
                 Drawing.DrawLine(Drawing.WorldToScreen(startpos), Drawing.WorldToScreen(endpos), 2, spell.Color.ConvertColor());
                 Drawing.DrawText(Drawing.WorldToScreen(endpos) + new Vector2(-20, 15), Color.White, spell.Caster.BaseSkinName, 10);
                 if (DrawBlinkFix == false)
-                    // Kappa new Circle { Color = spell.Color.ConvertColor(), Radius = 30f, BorderWidth = 1 }.Draw(endpos);
-                    ;
+                    Circle.Draw(spell.GetColor(), 30f, endpos);
             }
             catch (Exception e)
             {
@@ -563,8 +562,7 @@ namespace TimerBuddy
 
                 if (Config.WardMenu.CheckboxValue(spell.MenuCode + "drawCircle") && DrawWardFix == false)
                 {
-                    // Kappa Circle.Draw(spell.GetColor(), 50, 4, spell.Object.Position);
-                    //new Circle { Color = spell.Color.ConvertColor(), Radius = 50f, BorderWidth = 2 }.Draw(spell.Object.Position);
+                    Circle.Draw(spell.GetColor(), 50, 4, spell.Object.Position);
                 }
             }
             catch (Exception e)

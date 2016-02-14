@@ -19,11 +19,11 @@ namespace TimerBuddy
             {
                 var hero = EntityManager.Heroes.AllHeroes;
                 var heroName = hero.Select(h => h.BaseSkinName).ToArray();
-                var summonerList = SpellDatabase.Database.Where(i => i.SpellType == SpellType.SummonerSpell).ToList();
-                var itemList = SpellDatabase.Database.Where(i => i.SpellType == SpellType.Item).ToList();
-                var wardList = SpellDatabase.Database.Where(i => i.SpellType == SpellType.Ward).ToList();
-                var trapList = SpellDatabase.Database.Where(t => heroName.Contains(t.ChampionName) && t.SpellType == SpellType.Trap).ToList();
-                var spellList = SpellDatabase.Database.Where(s => heroName.Contains(s.ChampionName) && s.SpellType == SpellType.Spell).ToList();
+                var summonerList = Program.SpellDB.Where(i => i.SpellType == SpellType.SummonerSpell).ToList();
+                var itemList = Program.SpellDB.Where(i => i.SpellType == SpellType.Item).ToList();
+                var wardList = Program.SpellDB.Where(i => i.SpellType == SpellType.Ward).ToList();
+                var trapList = Program.SpellDB.Where(t => heroName.Contains(t.ChampionName) && t.SpellType == SpellType.Trap).ToList();
+                var spellList = Program.SpellDB.Where(s => heroName.Contains(s.ChampionName) && s.SpellType == SpellType.Spell).ToList();
 
                 #region Main Menu
                 Menu = MainMenu.AddMenu("TimerBuddy", "TimerBuddy", "TimerBuddy - Life is all about Timing!");

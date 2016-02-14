@@ -32,7 +32,7 @@ namespace TimerBuddy
                 if (!sender.IsValid || !args.Buff.Caster.IsValid || !sender.IsHero())
                     return;
 
-                var database = SpellDatabase.Database.FirstOrDefault(d => d.Buff && (d.Name == args.Buff.DisplayName || d.Name == args.Buff.Name));
+                var database = Program.SpellDB.FirstOrDefault(d => d.Buff && (d.Name == args.Buff.DisplayName || d.Name == args.Buff.Name));
                 
                 if (database != null)
                 {
@@ -98,7 +98,7 @@ namespace TimerBuddy
 
                 WardDetector(sender, args);
 
-                var database = SpellDatabase.Database.FirstOrDefault(d => d.GameObject && d.SpellType != SpellType.Ward && (d.ObjectName != null
+                var database = Program.SpellDB.FirstOrDefault(d => d.GameObject && d.SpellType != SpellType.Ward && (d.ObjectName != null
                 ? d.Name == sender.Name && d.ObjectName == sender.BaseObjectName()
                 : sender.Name.Contains(d.Name)));
                 
@@ -172,7 +172,7 @@ namespace TimerBuddy
 
                 Utility.ShacoBoxActive(sender, args);
                 
-                var database = SpellDatabase.Database.FirstOrDefault(d => d.GameObject == false && d.Buff == false && 
+                var database = Program.SpellDB.FirstOrDefault(d => d.GameObject == false && d.Buff == false && 
                 (d.SpellType == SpellType.Spell && d.ChampionName == sender.BaseSkinName && d.Slot == args.Slot) ||
                 ((d.SpellType == SpellType.Item || d.SpellType == SpellType.Blink) && d.Name == args.SData.Name));
                 
@@ -212,7 +212,7 @@ namespace TimerBuddy
                     return;
                 }
 
-                var spellDatabase = SpellDatabase.Database.FirstOrDefault(d => 
+                var spellDatabase = Program.SpellDB.FirstOrDefault(d => 
                 (d.GameObject && d.SpellType == SpellType.Spell && d.ChampionName == sender.BaseSkinName && d.Slot == args.Slot) ||
                 (d.GameObject && d.SpellType == SpellType.SummonerSpell && args.SData.Name == "summonerteleport"));
 
@@ -238,7 +238,7 @@ namespace TimerBuddy
                     return;
                 }
 
-                var wardDatabase = SpellDatabase.Database.FirstOrDefault(d => d.GameObject && d.SpellType == SpellType.Ward && d.Name == args.SData.Name);
+                var wardDatabase = Program.SpellDB.FirstOrDefault(d => d.GameObject && d.SpellType == SpellType.Ward && d.Name == args.SData.Name);
 
                 if (wardDatabase != null)
                 {
@@ -308,7 +308,7 @@ namespace TimerBuddy
                 if (!Config.Menu.CheckboxValue("wardTimer"))
                     return;
 
-                var database = SpellDatabase.Database.FirstOrDefault(d => d.GameObject && d.SpellType == SpellType.Ward &&
+                var database = Program.SpellDB.FirstOrDefault(d => d.GameObject && d.SpellType == SpellType.Ward &&
                 d.ObjectName == sender.BaseObjectName());
                 
                 if (database != null)
