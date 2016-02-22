@@ -488,6 +488,7 @@ namespace TimerBuddy
             }
             catch (Exception e)
             {
+                /*
                 Console.WriteLine(e);
                 Chat.Print("<font color='#FF0000'>ERROR:</font> CODE DRAW_TRAP " + spell.Caster.BaseSkinName + " " + spell.Name, Color.SpringGreen);
                 if (DrawTrapFix == false)
@@ -499,7 +500,8 @@ namespace TimerBuddy
                 {
                     Chat.Print("Fixing failed, Disable Trap Timer, Please report bugs with CODE", Color.Gold);
                     Config.Menu["trapTimer"].Cast<CheckBox>().CurrentValue = false;
-                }
+                }*/
+                e.ErrorMessage("DRAW_TRAP " + spell.Caster.BaseSkinName + " " + spell.Name);
             }
         }
 
@@ -523,7 +525,7 @@ namespace TimerBuddy
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                /*Console.WriteLine(e);
                 Chat.Print("<font color='#FF0000'>ERROR:</font> CODE DRAW_BLINK " + spell.Caster.BaseSkinName, Color.SpringGreen);
                 if (DrawBlinkFix == false)
                 {
@@ -534,7 +536,8 @@ namespace TimerBuddy
                 {
                     Chat.Print("Fixing failed, Disable Blink Tracker, Please report bugs with CODE", Color.Gold);
                     Config.Menu["blinkTracker"].Cast<CheckBox>().CurrentValue = false;
-                }
+                }*/
+                e.ErrorMessage("DRAW_BLINK " + spell.Caster.BaseSkinName + " " + spell.Name);
             }
         }
 
@@ -567,7 +570,7 @@ namespace TimerBuddy
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                /*Console.WriteLine(e);
                 Chat.Print("<font color='#FF0000'>ERROR:</font> CODE DRAW_WARD " + spell.Caster.BaseSkinName + " " + spell.Name, Color.SpringGreen);
                 if (DrawWardFix == false)
                 {
@@ -578,7 +581,8 @@ namespace TimerBuddy
                 {
                     Chat.Print("Fixing failed, Disable Ward Timer, Please report bugs with CODE", Color.Gold);
                     Config.Menu["wardTimer"].Cast<CheckBox>().CurrentValue = false;
-                }
+                }*/
+                e.ErrorMessage("DRAW_WARD " + spell.Caster.BaseSkinName + " " + spell.Name);
             }
         }
 
