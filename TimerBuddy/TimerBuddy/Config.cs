@@ -176,7 +176,7 @@ namespace TimerBuddy
                 #region MiscMenu
                 MiscMenu = Menu.AddSubMenu("Misc Settigns");
                 MiscMenu.AddGroupLabel("Drawing");
-                MiscMenu.AddCheckBox("error", "Show Error Message", true);
+                MiscMenu.AddCheckBox("error", "Show Error Message", false);
                 MiscMenu.AddLabel("If you find bugs, please report bugs with error code");
                 MiscMenu.AddSeparator();
                 MiscMenu.AddGroupLabel("Blink Tracker");
