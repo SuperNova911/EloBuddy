@@ -483,7 +483,7 @@ namespace TimerBuddy
                     if (spell.Team == Team.Ally && Config.TrapMenu.CheckboxValue("circleOnlyEnemy"))
                         return;
 
-                    //Circle.Draw(spell.GetColor(), spell.Object.BoundingRadius, 4, spell.Object.Position);
+                    Circle.Draw(spell.GetColor(), spell.Object.BoundingRadius, 4, spell.Object.Position);
                 }
             }
             catch (Exception e)
@@ -521,7 +521,7 @@ namespace TimerBuddy
                 Drawing.DrawLine(Drawing.WorldToScreen(startpos), Drawing.WorldToScreen(endpos), 2, spell.Color.ConvertColor());
                 Drawing.DrawText(Drawing.WorldToScreen(endpos) + new Vector2(-20, 15), Color.White, spell.Caster.BaseSkinName, 10);
                 if (DrawBlinkFix == false)
-                    ;//Circle.Draw(spell.GetColor(), 30f, endpos);
+                    ;Circle.Draw(spell.GetColor(), 30f, endpos);
             }
             catch (Exception e)
             {
@@ -565,7 +565,7 @@ namespace TimerBuddy
 
                 if (Config.WardMenu.CheckboxValue(spell.MenuCode + "drawCircle") && DrawWardFix == false)
                 {
-                    //Circle.Draw(spell.GetColor(), 50, 4, spell.Object.Position);
+                    Circle.Draw(spell.GetColor(), 50, 4, spell.Object.Position);
                 }
             }
             catch (Exception e)
